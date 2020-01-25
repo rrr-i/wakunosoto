@@ -1,0 +1,392 @@
+@import './normalize.sass'
+
+$red : #E62980
+$blue : #32AFD7
+$yellow : #DCCC34
+$green : #1EAC4B
+$black: #333333
+$subBlack: #555555
+$gray: #cccccc
+
+*
+  font-size: 62.5%
+  line-height: 1.75rem
+  letter-spacing: .1rem
+  font-feature-settings: "palt" 1
+  box-sizing: border-box
+  color: $subBlack
+  font-family: a-otf-midashi-go-mb31-pr6n, sans-serif
+  font-weight: 600
+  font-style: normal
+
+@keyframes rotate
+  0%
+    transform: translate(-50%,0%) rotate(0deg) scale(.75)
+    background: rgba($red,.4)
+  25%
+    background: rgba($blue,.4)
+  50%
+    transform: translate(-50%,0%) rotate(180deg) scale(1)
+    background: rgba($yellow,.4)
+  75%
+    background: rgba($green,.4)
+  100%
+    transform: translate(-50%,0%) rotate(360deg) scale(.75)
+    background: rgba($red,.4)
+
+@keyframes stretch
+  0%
+    width: 0%
+  100%
+    width: 100%
+
+@keyframes top-l
+  0%
+    opacity: 0
+    transform: translate(0%,100%)
+  100%
+    opacity: 1
+    transform: translate(0%,0%)
+
+@keyframes bottom-l
+  0%
+    opacity: 0
+    transform: translate(0%,-700%)
+  100%
+    opacity: 1
+    transform: translate(0%,0%)
+
+@keyframes load
+  0%
+    opacity: 1
+  90%
+    opacity: 1
+  100%
+    opacity: 0
+
+@keyframes fadein
+  0%
+    opacity: 0
+    background: transpearent
+  100%
+    opacity: 1
+    background: white
+
+body
+  height: auto
+  overflow: intial
+// body.onLoad
+//   height: 100vh
+//   overflow: hidden
+#wrapper
+  overflow: hidden
+.load
+  content: ""
+  width: 100vw
+  height: 100vh
+  background: white
+  position: fixed
+  top: 0
+  z-index: 999
+  animation: load 20s forwards ease-in-out
+  &::before
+    display: block
+    content: ""
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    transform-origin: center
+    width: 60px
+    height: 60px
+    border-radius: 80% 30% 50% 50%/50%
+    z-index: 0
+    animation: rotate 8s infinite linear
+  img
+    width: 50px
+// ====================================================
+//  firstView
+// ====================================================
+.firstView
+  position: relative
+  width: 100vw
+  height: 100vh
+  // background: url('../materials/paint/paint.png') no-repeat white
+  background-size: contain
+  .square a
+    display: block
+    content: ""
+    position: absolute
+    bottom: 20%
+    left: 50%
+    transform: translate(-50%,0%)
+    transform-origin: center
+    width: 60px
+    height: 60px
+    border-radius: 80% 30% 50% 50%/50%
+    z-index: 0
+    animation: rotate 6s infinite linear
+    cursor: pointer
+  .paint
+    overflow-y: visible
+    img
+      position: absolute
+      width: 900px
+    img:nth-child(1)
+      top: -5%
+      left: -5%
+      z-index: 15
+    img:nth-child(2)
+      width: 1100px
+      top: -15%
+      right: 5%
+      transform: rotate(-10deg)
+      z-index: 16
+    img:nth-child(3)
+      width: 700px
+      top: 42%
+      left: 20%
+      transform: rotate(-10deg)
+      z-index: 17
+    img:nth-child(4)
+      top: 30%
+      right: -15%
+      z-index: 18
+  .logo
+    &-wrap
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-70%)
+      width: 100%
+      z-index: 100
+    &-Svg
+      width: 150px
+      margin: 0 auto 24rem
+      img
+    // &-Svg
+    //   width: 80%
+    //   margin: 0 auto
+    //   padding: 0 0 10px 0
+    //   overflow: hidden
+    //   img
+    //     opacity: 0
+    //     transform: translate(0%,100%)
+    //     animation: top-l 2s 1.5s forwards ease-in-out
+    // &-border
+    //   display: block
+    //   content: ""
+    //   width: 0%
+    //   height: 1px
+    //   margin: 5px 0
+    //   background: $subBlack
+    //   animation: stretch 1.5s forwards ease-in-out
+    &-caption
+      text-align: center
+      .title
+        font-size: 8rem
+        letter-spacing: 2rem
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', a-otf-midashi-go-mb31-pr6n, sans-serif
+        font-weight: 500
+        small
+          margin: 0 5rem
+          font-size: 7rem
+      .sub-title
+        color: $subBlack
+        font-size: 1.8rem
+        font-weight: normal
+        letter-spacing: .75rem
+    // &-caption
+    //   padding: 4px 0 0 0
+    //   text-align: center
+    //   overflow: hidden
+    //   p
+    //     opacity: 0
+    //     transform: translate(0%,-700%)
+    //     animation: bottom-l 2s 1.5s forwards ease-in-out
+    //     color: $black
+    //     font-size: 1.4rem
+    //     letter-spacing: .5rem
+// ====================================================
+//  concept
+// ====================================================
+.content
+  position: relative
+  padding: 100px 0
+  background: white
+  .concept
+    position: relative
+    max-width: 1100px
+    margin: 0 auto 100px
+    padding: 0 50px
+    &::before
+      display: block
+      content: ""
+      position: absolute
+      bottom: 0%
+      right: 0%
+      transform-origin: center
+      width: 60px
+      height: 60px
+      border-radius: 80% 30% 50% 50%/50%
+      z-index: 0
+      animation: rotate 8s infinite linear
+  h2
+    position: relative
+    z-index: 100
+    display: inline-block
+    padding: 1rem 0
+    color: transparent
+    background: linear-gradient(45deg,$red,$blue)
+    background-clip: text
+    -webkit-background-clip: text
+    font-size: 4rem
+    font-weight: 900
+  p
+    position: relative
+    z-index: 100
+    margin-left: 1rem
+    font-size: 1.8rem
+    letter-spacing: .2rem
+// ====================================================
+//  whatdoing
+// ====================================================
+.whatdoing
+  position: relative
+  max-width: 1100px
+  margin: 0 auto 0px
+  padding: 0 50px
+  &::before
+    display: block
+    content: ""
+    position: absolute
+    bottom: 0%
+    left: 0%
+    transform-origin: center
+    width: 40px
+    height: 40px
+    border-radius: 80% 30% 50% 50%/50%
+    z-index: 0
+    animation: rotate 8s infinite linear
+  h2
+    background: linear-gradient(45deg,$yellow,$green)
+    background-clip: text
+    -webkit-background-clip: text
+// ====================================================
+//  video
+// ====================================================
+.video
+  width: 100vw
+  height: 400px
+  position: relative
+  &::before
+    display: block
+    content: ""
+    position: absolute
+    top: 0
+    width: 100vw
+    height: 400px
+    background: rgba(255,255,255,.2)
+    z-index: -1
+  video
+    position: relative
+    top: -200px
+    object-fit: cover
+    width: 100%
+    z-index: -2
+// ====================================================
+//  service
+// ====================================================
+.service
+  background: white
+// ====================================================
+//  rules
+// ====================================================
+.rules
+  padding: 100px 0
+  background: darken(white, 4%)
+  > div
+    max-width: 1100px
+    margin: 0 auto
+    padding: 0 50px
+  h3
+    margin-bottom: 60px
+    text-align: center
+    font-size: 3.4rem
+    letter-spacing: .25rem
+  .rules-box
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    flex-wrap: nowrap
+    max-width: 100%
+    margin-bottom: 60px
+    padding: 40px 0
+    background: white
+    box-shadow: 10px 10px 20px -8px $gray
+    border-radius: 10px
+    transition: .2s
+  .rules-box:nth-child(2)
+    border-left: 14px solid $red
+    border-right: 4px solid $red
+    span,h4
+      color: $red
+  .rules-box:nth-child(3)
+    border-left: 14px solid $blue
+    border-right: 4px solid $blue
+    span,h4
+      color: $blue
+  .rules-box:nth-child(4)
+    border-left: 14px solid $yellow
+    border-right: 4px solid $yellow
+    span,h4
+      color: $yellow
+  .rules-box:nth-child(5)
+    border-left: 14px solid $green
+    border-right: 4px solid $green
+    span,h4
+      color: $green
+  span
+    display: block
+    width: 25%
+    text-align: center
+    letter-spacing: -1rem
+    font-size: 12rem
+    font-weight: 900
+    opacity: .5
+  &-caption
+    width: 75%
+    padding: 0px 80px
+    border-left: 1px solid $gray
+    h4
+      font-size: 3rem
+      font-weight: 900
+    p
+      font-size: 1.8rem
+      line-height: 3rem
+      letter-spacing: .25rem
+      color: $subBlack
+
+// ====================================================
+//  gallery
+// ====================================================
+.gallery
+  max-width: 1100px
+  width: 100%
+  height: 600px
+  margin: 100px auto
+  overflow: hidden
+  img
+    width: 100%
+// ====================================================
+//  footer
+// ====================================================
+footer
+  padding: 100px 0 30px
+  text-align: center
+  .footer-logoSvg
+    width: 80px
+    margin: 0 auto 20px
+  small
+    color: $gray
+    letter-spacing: .25rem
